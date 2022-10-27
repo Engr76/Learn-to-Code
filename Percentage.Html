@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Percentage Calculator App</title>
+<style>
+.content .info p {
+    margin: 10px;
+    padding: 10px;
+    text-align: justify;
+    font-family: serif;
+}
+</style>
+</head>
+
+<body>
+<!--- Heading --->
+<div class="content">
+ <div class="heading">
+    <h2>Percentage Calculator</h2>
+ </div>
+</div>
+
+<!--- Flex Items --->
+<div class="main">
+
+<!--- First Flex Item --->
+<div class="content">
+    <div class="info">
+    <p>1. If you want to find the percentage, then use this card:-</p>
+    </div>
+    <div class="get">
+    <span>Marks/Scores Obtained:</span>
+    <br />
+    <input type="number" placeholder="Marks/Scores Obtained" class="input" required="required" id="obtained"/>
+    <br />
+    <span>Total Marks/Scores:</span>
+    <br />
+    <input type="number" placeholder="Total Marks/Scores" class="input" required="required" id="total"/>
+    </div>
+    
+    <div class="btn">
+    <input type="button" value="Get Result" class="button" onclick="getInput()"/>
+    </div>
+    <div id="result"></div>
+</div>
+
+<!--- Second Flex Item --->
+<div class="content">
+    <div class="info">
+    <p>2. If you want to find the obtained marks, then use this card:-</p>
+    </div>
+    <div class="get">
+    <span>% of Marks/Scores:</span>
+    <br />
+    <input type="number" placeholder="% of Marks/Scores" class="input" id="percent"/><br />
+    <span>Total Marks/Scores:</span>
+    <br />
+    <input type="number" placeholder="Total Marks/Scores" class="input" id="tmarks"/>
+    </div>
+    
+    <div class="btn">
+        <input type="button" value="Get Result" class="button" onclick="marks()"/>
+    </div>
+    <div id="answer"></div>
+</div>
+
+<!--- Third Flex Item --->
+<div class="content">
+    <div class="info">
+    <p>3. If you want to find the total marks, then use this card:-</p>
+    </div>
+    <div class="get">
+    <span>% of Marks/Scores:</span>
+    <br />
+    <input type="number" placeholder="% of Marks/Scores" class="input" id="per"/><br />
+    <span>Marks/Scores Obtained:</span>
+    <br />
+    <input type="number" placeholder="Marks/Scores Obtained" class="input" id="oMarks"/>
+    </div>
+    
+    <div class="btn">
+        <input type="button" value="Get Result" class="button" onclick="obtainedMarks()"/>
+    </div>
+    <div id="ans"></div>
+</div>
+</div>
+
+</div>
+
+<script>
+function getInput() {
+var obtained = parseFloat(document.getElementById('obtained').value);
+
+var total = parseFloat(document.getElementById('total').value);
+
+var percentage = obtained/total*100;
+
+document.getElementById('result').innerHTML = "You Got " + percentage + " %.";
+}
+
+function marks() {
+var percent = parseFloat(document.getElementById('percent').value);
+
+var tmarks = parseFloat(document.getElementById('tmarks').value);
+
+var result = percent*tmarks/100;
+
+document.getElementById('answer').innerHTML = "You Obtained " + result + " Marks/Scores."
+}
+
+function obtainedMarks() {
+var per = parseFloat(document.getElementById('per').value);
+
+var oMarks = parseFloat(document.getElementById('oMarks').value);
+
+var res = oMarks*100/per;
+
+document.getElementById('ans').innerHTML = "Total Marks is " + res + ".";
+}
+</script>
+</body>
+</html>
+<style>
+    <body>
+    html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: verdana;
+}
+
+body {
+    background-color: #bc02ff;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.content {
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.8);
+}
+
+.content .heading {
+    text-align: center;
+    margin: 20px 10px 30px 10px;
+}
+
+.content .heading h2 {
+    font-family: serif;
+}
+
+.content .get {
+    text-align: center;
+}
+
+.content .get span {
+    font-family: cursive;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.content .get .input {
+    margin: 10px 10px 30px 10px;
+    padding: 10px 20px 10px 20px;
+    background-color: #ffaf00;
+    color: #fff;
+    border-style: solid;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    outline: none;
+    cursor: text;
+    box-shadow: 0 10px 15px rgba(0,0,0, 0.5);
+}
+
+.content .btn {
+    text-align: center;
+}
+
+.content .btn .button {
+    padding: 20px;
+    margin: 10px 20px 20px 20px;
+    border-radius: 30px;
+    border-style: solid;
+    background-color: #da2268;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 10px 15px rgba(0,0,0, 0.5);
+    outline: none;
+    cursor: pointer;
+}
+
+#result, #answer, #ans {
+    text-align: center;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+  font-weight: lighter;
+}
